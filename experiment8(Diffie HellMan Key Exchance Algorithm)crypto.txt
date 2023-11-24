@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <math.h>
+int main() 
+{
+int q, b, Xa, Xb, Ya, Yb, K1, K2, temp1, temp2, temp3, temp4;
+printf("Enter the value of q: ");
+scanf("%d", &q);
+printf("Enter the value of alpha: ");
+scanf("%d", &b);
+printf("Enter the value of Xa: ");
+scanf("%d", &Xa);
+printf("Enter the value of Xb: ");
+scanf("%d", &Xb);
+temp1 = (int)pow(b, Xa) % q;
+Ya = temp1;
+printf("Ya = %d\n", Ya);
+temp2 = (int)pow(b, Xb) % q;
+Yb = temp2;
+printf("Yb = %d\n", Yb);
+temp3 = (int)pow(Yb, Xa) % q  n ;
+K1 = temp3;
+temp4 = (int)pow(Ya, Xb) % q;
+K2 = temp4;
+if (K1 == K2) 
+{
+printf("The value of K = %d", K1);
+}
+return 0;
+}
+
