@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    int k = 3;
+    char input[1000], cipher[1000];
+    
+    printf("Enter input string: ");
+    scanf("%s", input);
+    
+    // Encryption
+    printf("Encryption is: ");
+    for (int i = 0; i < strlen(input); i++) {
+        if (islower(input[i])) {
+            cipher[i] = ((input[i] - 'a' + k) % 26) + 'a';
+        } else if (isupper(input[i])) {
+            cipher[i] = ((input[i] - 'A' + k) % 26) + 'A';
+        } else {
+            cipher[i] = input[i]; // Keep non-alphabetic characters unchanged
+        }
+        printf("%c", cipher[i]);
+    }
+    
+    // Decryption
+    printf("\nDecryption is: ");
+    for (int i = 0; i < strlen(input); i++) {
+        if (islower(cipher[i])) {
+            input[i] = ((cipher[i] - 'a' - k + 26) % 26) + 'a';
+        } else if (isupper(cipher[i])) {
+            input[i] = ((cipher[i] - 'A' - k + 26) % 26) + 'A';
+        } else {
+            input[i] = cipher[i]; // Keep non-alphabetic characters unchanged
+        }
+        printf("%c", input[i]);
+    }
+    
+    printf("\n");
+
+    return 0;
+}
